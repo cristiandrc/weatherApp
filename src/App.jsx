@@ -1,7 +1,14 @@
 import React from "react";
+import { GlobalStyles } from "./style/GlobalStyles";
+import Home from "./containers/Home";
 
 const App = () => {
-  return <h1>Hola Mundo</h1>;
+  return (
+    <>
+      <GlobalStyles />
+      <Home />
+    </>
+  );
 };
 
 export default App;
