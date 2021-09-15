@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/Hero/Hero";
 import Weather from "../components/Weather/Weather";
 import { WeatherContainer } from "../components/Weather/styled";
 import Status from "../components/Status/Status";
 import { StatusContainer } from "../components/Status/styled";
+const CITY = "https://www.metaweather.com/api/location/search/?query=helsinki";
 
 const Home = () => {
   return (

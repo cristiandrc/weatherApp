@@ -53,3 +53,14 @@ export const City = styled.p`
   font-size: 18px;
   font-weight: 600;
 `;
+
+export const Search = styled.button`
+  width: 161px;
+  height: 40px;
+  position: absolute;
+  top: 18px;
+  left: 11px;
+  background-color: #6e707a;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+`;
