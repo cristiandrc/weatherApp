@@ -1,5 +1,5 @@
 import React from "react";
-import { Section, CloudsBg, Cloud, Temp, Weather, Today, City } from "./styled";
+import { Section, CloudsBg, Cloud, Temp, Climate, Today, City } from "./styled";
 import cloudBackground from "../../assets/images/Cloud-background.png";
 import shower from "../../assets/images/Shower.png";
 
@@ -11,7 +11,7 @@ const Hero = () => {
       <Temp>
         15<span>°C</span>
       </Temp>
-      <Weather>Shower</Weather>
+      <Climate>Shower</Climate>
       <Today>
         Today <span>.</span> Fri,5 jun
       </Today>

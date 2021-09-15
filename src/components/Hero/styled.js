@@ -32,7 +32,7 @@ export const Temp = styled.span`
   }
 `;
 
-export const Weather = styled.h3`
+export const Climate = styled.h3`
   font-size: 32px;
   font-weight: 600;
   color: #a09fb1;
