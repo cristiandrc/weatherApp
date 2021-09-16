@@ -6,14 +6,19 @@ import Hero from "../components/Hero/Hero";
 import Status from "../components/Status/Status";
 import Modal from "../components/Modal/Modal";
 import CityNotFound from "../components/CitynotFound/CityNotFound";
+import Loading from "../components/Loading/Loading";
 import { StatusContainer } from "../components/Status/styled";
 import { StatusTitle } from "../components/Status/styled";
 
 const Home = () => {
-  const { weatherData, error, loading } = useContext(Context);
+  const { weatherData, error, loading, loadingCity } = useContext(Context);
 
   if (loading) {
-    return <h2>Cargando datos...Home</h2>;
+    return (
+      <Modal>
+        <Loading />
+      </Modal>
+    );
   }
 
   return (
@@ -21,6 +26,11 @@ const Home = () => {
       {error && (
         <Modal>
           <CityNotFound />
+        </Modal>
+      )}
+      {loadingCity && (
+        <Modal>
+          <Loading />
         </Modal>
       )}
       <Hero />

@@ -10,9 +10,10 @@ const ContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [city, setCity] = useState("");
+  const [loadingCity, setLoadingCity] = useState(true);
 
   const getCity = async (city = "medellin") => {
-    //
+    setLoadingCity(true);
     setCity(city);
 
     try {
@@ -24,11 +25,13 @@ const ContextProvider = ({ children }) => {
         setError(false);
         setWeatherData(data);
         setLoading(false);
+        setLoadingCity(false);
       }
       // console.log(data);
       if (data.cod === "404") {
         setError(true);
         setLoading(false);
+        setLoadingCity(false);
       }
     } catch (err) {
       setError(err);
@@ -49,6 +52,7 @@ const ContextProvider = ({ children }) => {
         weatherData,
         loading,
         error,
+        loadingCity,
       }}
     >
       {children}
