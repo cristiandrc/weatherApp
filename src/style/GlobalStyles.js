@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 html {
@@ -30,5 +30,34 @@ body {
         overscroll-behavior: none;
         width: 100%;
         background-color:#100E1D;
+  & #app{
+    background-color:#100E1D;
+
+    
+  }
+
+  @media (min-width: 1269px) {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:#2f2c43;
+
+    & #app{
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
 }
+`;
+
+export const ContainerHome = styled.section`
+  @media (min-width: 1269px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1440px;
+    max-height: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
 `;

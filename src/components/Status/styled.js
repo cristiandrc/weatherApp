@@ -27,16 +27,30 @@ export const Measure = styled.span`
 `;
 
 export const StatusContainer = styled.div`
+  position: relative;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   max-width: 810px;
   margin: 0 auto;
+
+  @media (min-width: 1269px) {
+    /* flex-direction: column; */
+    justify-items: center;
+    margin: 0 auto;
+    max-height: 400px;
+  }
 `;
 
 export const StatusTitle = styled.h2`
   max-width: 810px;
+  height: 50px;
   margin: 40px auto 20px;
   padding-left: 20px;
+  @media (min-width: 1269px) {
+    margin: 20px 0 0;
+    position: absolute;
+    top: 0;
+    margin-left: 459px;
+  }
 `;

@@ -10,6 +10,13 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 1269px) {
+    width: 459px;
+    height: 100vh;
+    max-height: 800px;
+    min-height: initial;
+  }
 `;
 
 export const CloudsBg = styled.img`

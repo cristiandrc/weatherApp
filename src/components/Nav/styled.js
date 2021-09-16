@@ -12,6 +12,10 @@ export const NavMenu = styled.nav`
   display: flex;
   justify-content: center;
   transition: 0.5s left ease;
+  @media (min-width: 1269px) {
+    position: absolute;
+    max-width: 459px;
+  }
 `;
 
 export const InputSearch = styled.input`
