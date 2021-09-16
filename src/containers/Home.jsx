@@ -4,6 +4,7 @@ import Hero from "../components/Hero/Hero";
 // import Weather from "../components/Weather/Weather";
 // import { WeatherContainer } from "../components/Weather/styled";
 import Status from "../components/Status/Status";
+import Modal from "../components/Modal/Modal";
 import { StatusContainer } from "../components/Status/styled";
 import { StatusTitle } from "../components/Status/styled";
 
@@ -19,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      {error && <h4>No tenemos datos</h4>}
+      {error && <Modal>No tenemos datos</Modal>}
       <Hero />
       <StatusTitle>Today’s Highlights </StatusTitle>
       <StatusContainer>
