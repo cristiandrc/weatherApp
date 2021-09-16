@@ -5,6 +5,7 @@ import Hero from "../components/Hero/Hero";
 // import { WeatherContainer } from "../components/Weather/styled";
 import Status from "../components/Status/Status";
 import Modal from "../components/Modal/Modal";
+import CityNotFound from "../components/CitynotFound/CityNotFound";
 import { StatusContainer } from "../components/Status/styled";
 import { StatusTitle } from "../components/Status/styled";
 
@@ -14,13 +15,14 @@ const Home = () => {
   if (loading) {
     return <h2>Cargando datos...Home</h2>;
   }
-  // if (error) {
-  //   return <h2>No logramdo conseguir los datos </h2>;
-  // }
 
   return (
     <>
-      {error && <Modal>No tenemos datos</Modal>}
+      {error && (
+        <Modal>
+          <CityNotFound />
+        </Modal>
+      )}
       <Hero />
       <StatusTitle>Today’s Highlights </StatusTitle>
       <StatusContainer>

@@ -9,10 +9,11 @@ const ContextProvider = ({ children }) => {
   const [weatherData, setWeatherData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [city, setCity] = useState("");
 
   const getCity = async (city = "medellin") => {
-    // setError(false);
-    //setLoading(true);
+    //
+    setCity(city);
 
     try {
       const response = await fetch(
@@ -20,6 +21,7 @@ const ContextProvider = ({ children }) => {
       );
       const data = await response.json();
       if (data.cod === 200) {
+        setError(false);
         setWeatherData(data);
         setLoading(false);
       }
@@ -41,6 +43,7 @@ const ContextProvider = ({ children }) => {
     <Context.Provider
       value={{
         open,
+        city,
         setOpen,
         getCity,
         weatherData,
