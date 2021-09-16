@@ -3,16 +3,15 @@ import { Context } from "../../context/Context";
 import {
   Section,
   CloudsBg,
-  Cloud,
   Temp,
   Climate,
   Today,
   City,
   Search,
 } from "./styled";
-import Nav from "../Nav/Nav";
 import cloudBackground from "../../assets/images/Cloud-background.png";
-import shower from "../../assets/images/Shower.png";
+import Nav from "../Nav/Nav";
+import Cloud from "../Cloud/Cloud";
 
 const Hero = () => {
   const { setOpen, loading, weatherData } = useContext(Context);
@@ -26,7 +25,7 @@ const Hero = () => {
     <Section>
       <CloudsBg src={cloudBackground} />
       <Search onClick={() => setOpen((e) => !e)}>Search for places</Search>
-      <Cloud src={shower} />
+      <Cloud />
       <Temp>
         {weatherData.main.temp.toFixed()}
         {/* 22 */}

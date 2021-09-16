@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Hero from "../components/Hero/Hero";
 import Weather from "../components/Weather/Weather";
 import { WeatherContainer } from "../components/Weather/styled";

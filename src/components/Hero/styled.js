@@ -20,10 +20,6 @@ export const CloudsBg = styled.img`
   opacity: 0.1;
 `;
 
-export const Cloud = styled.img`
-  width: 150px;
-`;
-
 export const Temp = styled.span`
   font-size: 130px;
   font-weight: 500;
