@@ -9,6 +9,7 @@ const Nav = () => {
     e.preventDefault();
     getCity(e.target[0].value);
     setOpen((e) => !e);
+    e.target[0].value = "";
   };
 
   return (

@@ -8,18 +8,19 @@ import { StatusContainer } from "../components/Status/styled";
 import { StatusTitle } from "../components/Status/styled";
 
 const Home = () => {
-  const { loading, weatherData } = useContext(Context);
+  const { weatherData, error, loading } = useContext(Context);
+
   if (loading) {
-    return <h2>Cargando datos...</h2>;
+    return <h2>Cargando datos...Home</h2>;
   }
+  // if (error) {
+  //   return <h2>No logramdo conseguir los datos </h2>;
+  // }
+
   return (
     <>
+      {error && <h4>No tenemos datos</h4>}
       <Hero />
-      {/* <WeatherContainer>
-        {new Array(5).fill(1).map((d, i) => (
-          <Weather key={i} />
-        ))}
-      </WeatherContainer> */}
       <StatusTitle>Today’s Highlights </StatusTitle>
       <StatusContainer>
         <Status

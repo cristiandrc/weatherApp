@@ -14,12 +14,10 @@ import Nav from "../Nav/Nav";
 import Cloud from "../Cloud/Cloud";
 
 const Hero = () => {
-  const { setOpen, loading, weatherData } = useContext(Context);
-  console.log(weatherData);
+  const { setOpen, weatherData } = useContext(Context);
 
-  if (loading) {
-    return <h1>Cargando....</h1>;
-  }
+  // console.log(weatherData);
+
   return (
     <Section>
       <CloudsBg src={cloudBackground} />

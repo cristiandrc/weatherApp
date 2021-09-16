@@ -16,16 +16,16 @@ const CloudImg = styled.img`
 `;
 
 const Cloud = () => {
-  const [cloud, setCloud] = useState(
-    "https://openweathermap.org/img/wn/01d@4x.png"
-  );
   const { weatherData } = useContext(Context);
+  const [cloud, setCloud] = useState(
+    `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`
+  );
 
   useEffect(() => {
     setCloud(
       `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`
     );
-  }, []);
+  }, [weatherData.weather[0].icon]);
 
   return (
     <ContainerImg>
