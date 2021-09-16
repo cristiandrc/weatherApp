@@ -15,7 +15,6 @@ import Cloud from "../Cloud/Cloud";
 
 const Hero = () => {
   const { setOpen, loading, weatherData } = useContext(Context);
-  // const hola = new Date();
   console.log(weatherData);
 
   if (loading) {

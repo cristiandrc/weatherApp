@@ -34,3 +34,9 @@ export const StatusContainer = styled.div`
   max-width: 810px;
   margin: 0 auto;
 `;
+
+export const StatusTitle = styled.h2`
+  max-width: 810px;
+  margin: 40px auto 20px;
+  padding-left: 20px;
+`;
