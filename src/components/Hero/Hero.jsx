@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { Context } from "../../context/Context";
 import {
   Section,
   CloudsBg,
@@ -14,24 +15,31 @@ import cloudBackground from "../../assets/images/Cloud-background.png";
 import shower from "../../assets/images/Shower.png";
 
 const Hero = () => {
-  const [open, setOpen] = useState(false);
+  const { setOpen, loading, weatherData } = useContext(Context);
+  // const hola = new Date();
+  console.log(weatherData);
 
+  if (loading) {
+    return <h1>Cargando....</h1>;
+  }
   return (
     <Section>
       <CloudsBg src={cloudBackground} />
       <Search onClick={() => setOpen((e) => !e)}>Search for places</Search>
       <Cloud src={shower} />
       <Temp>
-        15<span>°C</span>
+        {weatherData.main.temp.toFixed()}
+        {/* 22 */}
+        <span>°C</span>
       </Temp>
-      <Climate>Shower</Climate>
+      <Climate>{weatherData.weather[0].description}</Climate>
       <Today>
-        Today <span>.</span> Fri,5 jun
+        Today <span>.</span> {Date().substr(0, 10)}
       </Today>
       <City>
-        <span>X</span> Helsinki
+        {weatherData.name}, {weatherData.sys.country}
       </City>
-      <Nav open={open} onClick={setOpen} />
+      <Nav />
     </Section>
   );
 };

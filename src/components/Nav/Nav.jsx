@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ButtonSearch, Close, InputSearch, NavMenu } from "./styled";
-const Nav = ({ open, onClick }) => {
+import { Context } from "../../context/Context";
+
+const Nav = () => {
+  const { open, setOpen, getCity } = useContext(Context);
+
   const submit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
+    getCity(e.target[0].value);
+    setOpen((e) => !e);
   };
 
   return (
     <NavMenu open={open}>
-      <Close onClick={() => onClick(!open)}>X</Close>
+      <Close onClick={() => setOpen((e) => !e)}>X</Close>
       <form onSubmit={submit}>
         <InputSearch type="text" placeholder="Search location" />
-        <ButtonSearch>Search</ButtonSearch>
+        <ButtonSearch type="submit">Search</ButtonSearch>
       </form>
     </NavMenu>
   );
