@@ -55,6 +55,7 @@ export const City = styled.p`
   color: #88869d;
   font-size: 18px;
   font-weight: 600;
+  display: flex;
 `;
 
 export const Search = styled.button`
@@ -66,4 +67,5 @@ export const Search = styled.button`
   background-color: #6e707a;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: 500;
+  cursor: pointer;
 `;

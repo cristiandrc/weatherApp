@@ -1,7 +1,12 @@
 import React, { useState, useContext } from "react";
-import { ButtonSearch, Close, InputSearch, NavMenu } from "./styled";
+import {
+  ButtonSearch,
+  Close,
+  InputSearch,
+  NavMenu,
+  SearchIcon,
+} from "./styled";
 import { Context } from "../../context/Context";
-
 const Nav = () => {
   const { open, setOpen, getCity } = useContext(Context);
   const [placeHolder, setPlaceholder] = useState("Search location");
@@ -21,6 +26,7 @@ const Nav = () => {
     <NavMenu open={open}>
       <Close onClick={() => setOpen((e) => !e)}>X</Close>
       <form onSubmit={submit}>
+        <SearchIcon />
         <InputSearch type="text" placeholder={placeHolder} />
         <ButtonSearch type="submit">Search</ButtonSearch>
       </form>

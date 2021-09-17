@@ -5,7 +5,7 @@ const Context = React.createContext();
 const KEY = "1020d136f3483e995f625e7e32ac0b62";
 
 const ContextProvider = ({ children }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [weatherData, setWeatherData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

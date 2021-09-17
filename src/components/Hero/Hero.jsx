@@ -9,6 +9,7 @@ import {
   City,
   Search,
 } from "./styled";
+import { IoLocationSharp } from "react-icons/io5";
 import cloudBackground from "../../assets/images/Cloud-background.png";
 import Nav from "../Nav/Nav";
 import Cloud from "../Cloud/Cloud";
@@ -33,7 +34,8 @@ const Hero = () => {
         Today <span>.</span> {Date().substr(0, 10)}
       </Today>
       <City>
-        {weatherData.name}, {weatherData.sys.country}
+        <IoLocationSharp size="20" /> {weatherData.name},{" "}
+        {weatherData.sys.country}
       </City>
       <Nav />
     </Section>

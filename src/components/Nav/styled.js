@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const NavMenu = styled.nav`
   position: fixed;
@@ -12,6 +13,11 @@ export const NavMenu = styled.nav`
   display: flex;
   justify-content: center;
   transition: 0.5s left ease;
+  z-index: 1;
+
+  form {
+    position: relative;
+  }
   @media (min-width: 1269px) {
     position: absolute;
     max-width: 459px;
@@ -35,6 +41,7 @@ export const ButtonSearch = styled.button`
   height: 48px;
   background-color: #3c47e9;
   margin-left: 12px;
+  cursor: pointer;
 `;
 
 export const Close = styled.button`
@@ -43,4 +50,12 @@ export const Close = styled.button`
   right: 10px;
   font-size: 20px;
   font-weight: 600;
+  cursor: pointer;
+`;
+
+export const SearchIcon = styled(AiOutlineSearch)`
+  position: absolute;
+  font-size: 25px;
+  left: 12px;
+  top: 12px;
 `;

@@ -27,4 +27,5 @@ export const Button = styled.button`
   height: 48px;
   background-color: #3c47e9;
   margin-top: 10px;
+  cursor: pointer;
 `;
