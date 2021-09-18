@@ -10,6 +10,7 @@ import Loading from "../components/Loading/Loading";
 import { StatusContainer } from "../components/Status/styled";
 import { StatusTitle } from "../components/Status/styled";
 import { ContainerHome } from "../style/GlobalStyles";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   const { weatherData, forecastData, error, loading, loadingCity } =
@@ -65,6 +66,7 @@ const Home = () => {
             value={weatherData.main.pressure}
           />
         </StatusContainer>
+        <Footer />
       </section>
     </ContainerHome>
   );
