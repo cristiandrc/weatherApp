@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const Context = React.createContext();
-// const CITY = "https://www.metaweather.com/api/location/search/?query=";
+const CITY = "https://api.openweathermap.org/data/2.5/weather?";
 const KEY = "1020d136f3483e995f625e7e32ac0b62";
-
 const ContextProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [weatherData, setWeatherData] = useState({});
@@ -13,14 +12,43 @@ const ContextProvider = ({ children }) => {
   const [city, setCity] = useState("");
   const [loadingCity, setLoadingCity] = useState(true);
 
-  const getCity = async (city = "medellin") => {
-    getDays(city);
+  const getLocation = (callBack) => {
+    const geo_option = {
+      timeout: 2000,
+    };
+    const geoSuccess = ({ coords }) => {
+      const location = `lat=${coords.latitude}&lon=${coords.longitude}`;
+      // console.log(coords);
+      // console.log(location);
+      callBack(null, location);
+    };
+
+    const geoError = (e) => {
+      // console.log(e);
+      callBack();
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        geoSuccess,
+        geoError,
+        geo_option
+      );
+    } else {
+      console.log("no tenemos geo");
+      callBack();
+    }
+  };
+
+  const getCity = async (place = "medellin", location) => {
+    let city = `q=${place}`;
+    getDays(city, location);
     setLoadingCity(true);
     setCity(city);
 
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric&lang=es`
+        `${CITY}${location ? location : city}&appid=${KEY}&units=metric&lang=es`
       );
       const data = await response.json();
 
@@ -30,7 +58,6 @@ const ContextProvider = ({ children }) => {
         setLoading(false);
         setLoadingCity(false);
       }
-      // console.log(data);
       if (data.cod === "404") {
         setError(true);
         setLoading(false);
@@ -42,11 +69,13 @@ const ContextProvider = ({ children }) => {
     }
   };
 
-  const getDays = async (city = "medellin") => {
+  const getDays = async (city = "medellin", location) => {
     let numberDay = [];
     let forecast = [];
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${KEY}&units=metric&lang=es`
+      `https://api.openweathermap.org/data/2.5/forecast?${
+        location ? location : city
+      }&appid=${KEY}&units=metric&lang=es`
     );
     const data = await response.json();
 
@@ -67,8 +96,9 @@ const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getCity();
+    getLocation(getCity);
   }, []);
+
   return (
     <Context.Provider
       value={{

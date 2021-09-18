@@ -17,11 +17,9 @@ import Cloud from "../Cloud/Cloud";
 const Hero = () => {
   const { setOpen, weatherData } = useContext(Context);
 
-  // console.log(weatherData);
-
   return (
     <Section>
-      <CloudsBg src={cloudBackground} />
+      <CloudsBg src={cloudBackground} alt="cloudBackground" />
       <Search onClick={() => setOpen((e) => !e)}>Search for places</Search>
       <Cloud />
       <Temp>
