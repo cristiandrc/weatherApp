@@ -14,9 +14,9 @@ const ContextProvider = ({ children }) => {
   const [loadingCity, setLoadingCity] = useState(true);
 
   const getCity = async (city = "medellin") => {
+    getDays(city);
     setLoadingCity(true);
     setCity(city);
-    getDays(city);
 
     try {
       const response = await fetch(

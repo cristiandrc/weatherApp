@@ -11,7 +11,7 @@ const ContainerImg = styled.div`
   justify-content: center;
 `;
 const CloudImg = styled.img`
-  width: ${({ size, icon }) => (size ? "100px" : "250px")};
+  width: ${({ size }) => (size ? "100px" : "250px")};
   object-fit: cover;
 `;
 
@@ -27,7 +27,7 @@ const Cloud = ({ size, icon }) => {
         icon ? icon : weatherData.weather[0].icon
       }@4x.png`
     );
-  }, [weatherData.weather[0].icon]);
+  }, [weatherData.weather[0].icon, icon]);
 
   return (
     <ContainerImg size={size}>
