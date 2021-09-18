@@ -7,6 +7,7 @@ const KEY = "1020d136f3483e995f625e7e32ac0b62";
 const ContextProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [weatherData, setWeatherData] = useState({});
+  const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [city, setCity] = useState("");
@@ -15,12 +16,14 @@ const ContextProvider = ({ children }) => {
   const getCity = async (city = "medellin") => {
     setLoadingCity(true);
     setCity(city);
+    getDays(city);
 
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric&lang=es`
       );
       const data = await response.json();
+
       if (data.cod === 200) {
         setError(false);
         setWeatherData(data);
@@ -39,6 +42,30 @@ const ContextProvider = ({ children }) => {
     }
   };
 
+  const getDays = async (city = "medellin") => {
+    let numberDay = [];
+    let forecast = [];
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${KEY}&units=metric&lang=es`
+    );
+    const data = await response.json();
+
+    data.list //tomar los dias y unificar los repetidos
+      .map((e) => e.dt_txt.slice(8, 10))
+      .forEach(
+        (element) => !numberDay.includes(element) && numberDay.push(element)
+      );
+    //para eliminar el dia actual y solo tener los siguientes dias
+    numberDay.length > 5 && numberDay.shift();
+
+    numberDay.forEach((element) => {
+      let filter = data.list.filter((e) => e.dt_txt.slice(8, 10) === element);
+
+      forecast.push(filter);
+    });
+    setForecastData(forecast);
+  };
+
   useEffect(() => {
     getCity();
   }, []);
@@ -50,6 +77,7 @@ const ContextProvider = ({ children }) => {
         setOpen,
         getCity,
         weatherData,
+        forecastData,
         loading,
         error,
         loadingCity,

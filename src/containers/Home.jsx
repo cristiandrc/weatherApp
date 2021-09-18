@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../context/Context";
 import Hero from "../components/Hero/Hero";
-// import Weather from "../components/Weather/Weather";
-// import { WeatherContainer } from "../components/Weather/styled";
+import Weather from "../components/Weather/Weather";
+import { WeatherContainer } from "../components/Weather/styled";
 import Status from "../components/Status/Status";
 import Modal from "../components/Modal/Modal";
 import CityNotFound from "../components/CitynotFound/CityNotFound";
@@ -12,7 +12,8 @@ import { StatusTitle } from "../components/Status/styled";
 import { ContainerHome } from "../style/GlobalStyles";
 
 const Home = () => {
-  const { weatherData, error, loading, loadingCity } = useContext(Context);
+  const { weatherData, forecastData, error, loading, loadingCity } =
+    useContext(Context);
 
   if (loading) {
     return (
@@ -35,8 +36,13 @@ const Home = () => {
         </Modal>
       )}
       <Hero />
-      <StatusTitle>Today’s Highlights </StatusTitle>
+      <WeatherContainer>
+        {forecastData.map((data, i) => (
+          <Weather key={i} data={data} />
+        ))}
+      </WeatherContainer>
       <StatusContainer>
+        <StatusTitle>Today’s Highlights </StatusTitle>
         <Status
           title="Wind status"
           measure="mps"

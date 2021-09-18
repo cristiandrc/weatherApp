@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Context } from "../../context/Context";
 
 const ContainerImg = styled.div`
-  width: 150px;
+  width: ${({ size }) => (size ? "100px" : "150px")};
   height: 150px;
   overflow: hidden;
   display: flex;
@@ -11,11 +11,11 @@ const ContainerImg = styled.div`
   justify-content: center;
 `;
 const CloudImg = styled.img`
-  width: 250px;
+  width: ${({ size, icon }) => (size ? "100px" : "250px")};
   object-fit: cover;
 `;
 
-const Cloud = () => {
+const Cloud = ({ size, icon }) => {
   const { weatherData } = useContext(Context);
   const [cloud, setCloud] = useState(
     `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`
@@ -23,13 +23,15 @@ const Cloud = () => {
 
   useEffect(() => {
     setCloud(
-      `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`
+      `https://openweathermap.org/img/wn/${
+        icon ? icon : weatherData.weather[0].icon
+      }@4x.png`
     );
   }, [weatherData.weather[0].icon]);
 
   return (
-    <ContainerImg>
-      <CloudImg src={cloud} alt="Cloud" />
+    <ContainerImg size={size}>
+      <CloudImg size={size} src={cloud} alt="Cloud" />
     </ContainerImg>
   );
 };
