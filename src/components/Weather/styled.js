@@ -20,7 +20,9 @@ export const WeatherContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: auto;
+  min-height: 277px;
   justify-content: center;
   padding: 50px 25px;
   gap: 30px;
+  margin-bottom: 40px;
 `;

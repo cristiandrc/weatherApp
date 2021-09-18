@@ -35,7 +35,6 @@ export const StatusContainer = styled.div`
   margin: 0 auto;
 
   @media (min-width: 1269px) {
-    /* flex-direction: column; */
     justify-items: center;
     margin: 0 auto;
     max-height: 400px;
@@ -43,14 +42,11 @@ export const StatusContainer = styled.div`
 `;
 
 export const StatusTitle = styled.h2`
+  position: absolute;
   max-width: 810px;
+  top: -50px;
   height: 50px;
-  margin: 40px auto 20px;
-  padding-left: 20px;
+  margin-left: 5%;
   @media (min-width: 1269px) {
-    margin: 20px 0 0;
-    position: absolute;
-    top: 0;
-    margin-left: 459px;
   }
 `;

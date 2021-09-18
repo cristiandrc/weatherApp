@@ -36,34 +36,37 @@ const Home = () => {
         </Modal>
       )}
       <Hero />
-      <WeatherContainer>
-        {forecastData.map((data, i) => (
-          <Weather key={i} data={data} />
-        ))}
-      </WeatherContainer>
-      <StatusContainer>
-        <StatusTitle>Today’s Highlights </StatusTitle>
-        <Status
-          title="Wind status"
-          measure="mps"
-          value={weatherData.wind.speed}
-        />
-        <Status
-          title="Humidity"
-          measure="%"
-          value={weatherData.main.humidity}
-        />
-        <Status
-          title="Visibility"
-          measure="Km"
-          value={(weatherData.visibility / 1000).toFixed(1)}
-        />
-        <Status
-          title="Air Pressure"
-          measure="hpa"
-          value={weatherData.main.pressure}
-        />
-      </StatusContainer>
+      <section>
+        <WeatherContainer>
+          {forecastData.map((data, i) => (
+            <Weather key={i} data={data} />
+          ))}
+        </WeatherContainer>
+
+        <StatusContainer>
+          <StatusTitle>Today’s Highlights </StatusTitle>
+          <Status
+            title="Wind status"
+            measure="mps"
+            value={weatherData.wind.speed}
+          />
+          <Status
+            title="Humidity"
+            measure="%"
+            value={weatherData.main.humidity}
+          />
+          <Status
+            title="Visibility"
+            measure="Km"
+            value={(weatherData.visibility / 1000).toFixed(1)}
+          />
+          <Status
+            title="Air Pressure"
+            measure="hpa"
+            value={weatherData.main.pressure}
+          />
+        </StatusContainer>
+      </section>
     </ContainerHome>
   );
 };
