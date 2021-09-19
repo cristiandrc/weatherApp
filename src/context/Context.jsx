@@ -44,7 +44,7 @@ const ContextProvider = ({ children }) => {
     let city = `q=${place}`;
     getDays(city, location);
     setLoadingCity(true);
-    setCity(city);
+    setCity(place);
 
     try {
       const response = await fetch(

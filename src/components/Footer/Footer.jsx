@@ -6,7 +6,10 @@ const FooterContainer = styled.footer`
   flex-wrap: wrap;
   justify-content: center;
   color: white;
-  margin-top: 40px;
+  margin: 40px 0 20px;
+  @media (min-width: 1269px) {
+    margin: 40px 0 0;
+  }
 `;
 const A = styled.a`
   margin: 0 10px;
