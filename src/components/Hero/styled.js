@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Section = styled.section`
   background-color: #1e213a;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  /* min-height: 100vh; */
   color: #e7e7eb;
   overflow: hidden;
   display: flex;
@@ -13,9 +14,9 @@ export const Section = styled.section`
 
   @media (min-width: 1269px) {
     width: 459px;
-    height: 100vh;
+    height: 800px;
     max-height: 800px;
-    min-height: initial;
+    /* min-height: 100vh; */
   }
 `;
 
